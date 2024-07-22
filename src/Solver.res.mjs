@@ -479,7 +479,7 @@ function intersectionRemovalStrategy(sudoku) {
                     removeCandidate(index, candidate);
                   });
             });
-        boxIndexes.filter(function (index) {
+        columnIndexes.filter(function (index) {
                 return !boxIndexes.includes(index);
               }).forEach(function (index) {
               columnCandidatesToRemoveOutsideOfBox.forEach(function (candidate) {

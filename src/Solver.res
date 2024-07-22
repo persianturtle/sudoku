@@ -388,7 +388,7 @@ let intersectionRemovalStrategy = sudoku => {
 
     // If a column contains candidates that must exist in a box's column,
     // remove those candidates from the rest of the column
-    boxIndexes
+    columnIndexes
     ->Array.filter(index => !Array.includes(boxIndexes, index))
     ->Array.forEach(index => {
       columnCandidatesToRemoveOutsideOfBox->Array.forEach(
