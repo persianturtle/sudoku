@@ -9,29 +9,53 @@ import * as Core__Option from "@rescript/core/src/Core__Option.res.mjs";
 var sudoku = [
   0,
   0,
-  1,
+  5,
+  0,
+  0,
+  0,
+  8,
+  0,
+  0,
+  0,
+  8,
+  0,
+  4,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
   2,
   0,
   0,
+  8,
+  5,
+  0,
+  7,
+  9,
+  0,
+  0,
+  3,
+  6,
   0,
   0,
   0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
+  2,
   0,
   1,
   0,
-  7,
+  0,
+  9,
+  0,
+  0,
+  0,
+  0,
+  4,
   0,
   0,
   5,
-  0,
-  8,
   0,
   0,
   0,
@@ -39,42 +63,21 @@ var sudoku = [
   0,
   0,
   7,
+  0,
+  0,
+  0,
   2,
-  6,
   0,
   0,
-  8,
   1,
   0,
   0,
-  6,
+  9,
   0,
-  0,
-  5,
-  0,
-  0,
-  0,
-  4,
-  0,
-  0,
-  0,
-  0,
-  0,
-  2,
-  6,
-  4,
   7,
   0,
   0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  8,
-  0,
-  0,
-  4,
+  6,
   0,
   0,
   0,
@@ -83,11 +86,8 @@ var sudoku = [
   0,
   0,
   0,
-  3,
-  7,
   0,
-  0,
-  9
+  0
 ];
 
 if (sudoku.length !== 81) {
@@ -343,9 +343,13 @@ function intersectionRemovalStrategy(sudoku) {
         };
         var removeCandidate = function (key, candidate) {
           var candidates = Core__Option.getOr(candidatesMap.get(key), []);
-          candidatesMap.set(key, candidates.filter(function (c) {
-                    return c !== candidate;
-                  }));
+          if (candidates.length > 0) {
+            candidatesMap.set(key, candidates.filter(function (c) {
+                      return c !== candidate;
+                    }));
+            return ;
+          }
+          
         };
         var getCandidatesThatMustExistInBox = function (boxIndexes, boxCandidates) {
           var candidates = boxCandidates.map(function (param) {
@@ -401,7 +405,7 @@ function intersectionRemovalStrategy(sudoku) {
                       RE_EXN_ID: "Assert_failure",
                       _1: [
                         "Solver.res",
-                        314,
+                        316,
                         15
                       ],
                       Error: new Error()
