@@ -108,7 +108,6 @@ let rec mediumStrategies = sudoku => {
     sudoku
     ->Strategies.intersection
     ->Strategies.nakedPair
-    ->Strategies.hiddenPair
 
   if originalSudoku == sudoku {
     sudoku
@@ -117,8 +116,20 @@ let rec mediumStrategies = sudoku => {
   }
 }
 
+let rec hardStrategies = sudoku => {
+  let originalSudoku = [...sudoku]
+  let sudoku = sudoku->Strategies.hiddenPair
+
+  if originalSudoku == sudoku {
+    sudoku
+  } else {
+    hardStrategies(sudoku)
+  }
+}
+
 sudoku
 ->easyStrategies
 ->mediumStrategies
+->hardStrategies
 ->Utilities.toRows
 ->Js.log
