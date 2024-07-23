@@ -6,13 +6,9 @@
   },
   "package-specs": {
     "module": "esmodule",
-    "in-source": true
+    "in-source": false
   },
   "suffix": ".res.mjs",
-  "bs-dependencies": [
-    "@rescript/core"
-  ],
-  "bsc-flags": [
-    "-open RescriptCore"
-  ]
+  "bs-dependencies": ["@rescript/core"],
+  "bsc-flags": ["-open RescriptCore"]
 }
