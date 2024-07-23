@@ -1,8 +1,10 @@
-# ReScript Project Template
+# Sudoku Solver
 
-- [Installation](../../README.md)
+The goal of this sudoku solver is to define various strategies that I've been learning about [here](https://hodoku.sourceforge.net/en/tech_intro.php).
 
-Official ReScript starter template.
+The strategies that this sudoku solver supports can be found in [Strategies.res](src/Strategies.res).
+
+The input to the program (i.e. the unsolved sudoku) is hard coded in [Solver.res](src/Solver.res). Sudukus are represented by a flat array of numbers, where `0` represents the absence of a number.
 
 ## Installation
 
@@ -19,5 +21,5 @@ npm install
 ## Run
 
 ```sh
-node src/Demo.res.js
+npm run solve
 ```
