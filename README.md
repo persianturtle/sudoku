@@ -6,6 +6,17 @@ The strategies that this sudoku solver supports can be found in [Strategies.res]
 
 The input to the program (i.e. the unsolved sudoku) is hard coded in [Solver.res](src/Solver.res). Sudukus are represented by a flat array of numbers, where `0` represents the absence of a number.
 
+To customize the strategies being applied when solving, edit [Solver.res](src/Solver.res).
+
+```
+sudoku
+->easyStrategies
+->mediumStrategies
+->hardStrategies
+->Utilities.toRows
+->Js.log
+```
+
 ## Installation
 
 ```sh
