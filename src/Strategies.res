@@ -58,7 +58,7 @@ let hiddenSingle = (sudoku, ~candidatesMap=Utilities.toCandidates(sudoku)) => {
     })
   })
 
-  sudoku
+  sudoku->nakedSingle(~candidatesMap)
 }
 
 /**
@@ -168,7 +168,7 @@ let intersection = (sudoku, ~candidatesMap=Utilities.toCandidates(sudoku)) => {
     })
   })
 
-  sudoku->nakedSingle(~candidatesMap)->hiddenSingle(~candidatesMap)
+  sudoku->hiddenSingle(~candidatesMap)
 }
 
 /**
@@ -226,7 +226,7 @@ let nakedPair = (sudoku, ~candidatesMap=Utilities.toCandidates(sudoku)) => {
     removePairCandidatesFromRemainderOfUnit(boxIndexes, pairsInBox)
   })
 
-  sudoku->intersection(~candidatesMap)->nakedSingle(~candidatesMap)->hiddenSingle(~candidatesMap)
+  sudoku->intersection(~candidatesMap)
 }
 
 /**
@@ -326,9 +326,5 @@ let hiddenPair = (sudoku, ~candidatesMap=Utilities.toCandidates(sudoku)) => {
     }
   })
 
-  sudoku
-  ->nakedPair(~candidatesMap)
-  ->intersection(~candidatesMap)
-  ->nakedSingle(~candidatesMap)
-  ->hiddenSingle(~candidatesMap)
+  sudoku->nakedPair(~candidatesMap)
 }
